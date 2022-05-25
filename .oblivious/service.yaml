@@ -1,0 +1,25 @@
+auth:
+- auth_name: default
+  auth_type: signed_headers
+base_image: ubuntu_18_04_proxy_python_3_8
+build_args:
+- name: some
+  required_arg: false
+  type: integer
+meta:
+  author: ' Example User'
+  author_email: girish946@gmail.com
+  git: https://github.com/girish946/fast-api-serv.git
+  version: 1.2.2
+paths:
+- access: querier
+  path: /say_hello
+  short_description: ' Responds "Hello" and their name'
+roles:
+- role_auth: default
+  role_cardinality: 1
+  role_description: ' The people who will be greeted'
+  role_name: querier
+traffic:
+- name: inbound
+  port: 80
